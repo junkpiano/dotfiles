@@ -14,9 +14,7 @@ fi
 
 npm install --global pure-prompt
 
-if [ ! -L $HOME/.oh-my-zsh ]
-then
-    ln -s ${PWD}/oh-my-zsh $HOME/.oh-my-zsh
-fi
+rm $HOME/.oh-my-zsh    
+ln -s ${PWD}/oh-my-zsh $HOME/.oh-my-zsh
 
 exec $SHELL -l
