@@ -19,6 +19,6 @@ Zsh Plugins
 Color Theme
 --------------
 
-- [iTemr2-snazzy](https://github.com/sindresorhus/iterm2-snazzy)
+- [iTerm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy)
 
 
