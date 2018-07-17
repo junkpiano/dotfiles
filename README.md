@@ -2,13 +2,21 @@ dotfiles
 =============
 
 These are my dotfiles.
+`setup.bash` is checked with [shellcheck](https://github.com/koalaman/shellcheck).
 
-Prerequisite
+Bootstrap
 --------------
 
-    $ ./bootstrap.bash
+    $ ./setup.bash bootstrap
 
-and then, please set terminal font from names in fonts.
+Run this for only the first time to bootstrap this dotfile environment.
+
+Reload Configurations
+----------------------
+
+    $ ./setup.bash
+
+Without `bootstrap`, it just reloads configurations, which is actually creating symbolic links again.
 
 Zsh Plugins
 --------------
