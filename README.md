@@ -15,18 +15,20 @@ Reload Configurations
 ----------------------
 
     $ ./setup.bash
+    $ source ${HOME}/.zshrc
 
 Without `bootstrap`, it just reloads configurations, which is actually creating symbolic links again.
 
 Zsh Plugins
 --------------
 
-- [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-- [pure](https://github.com/sindresorhus/pure)
+- [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+- [sindresorhus/pure](https://github.com/sindresorhus/pure)
+- [zsh-users/zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 Color Theme
 --------------
 
-- [iTerm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy)
-
-
+| iTerm2 | Hyper.js |
+| :------------- | :------------- |
+| [sindresorhus/iTerm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy) | [sindresorhus/hyper-snazzy](https://github.com/sindresorhus/hyper-snazzy) |

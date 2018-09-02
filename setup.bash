@@ -22,10 +22,8 @@ reloadConf() {
 	ln -s ${PWD}/$1 ${HOME}/$1
 	' sh {} \;
 
-	rm "${HOME:?}"/.oh-my-zsh    
+	rm "${HOME:?}"/.oh-my-zsh
 	ln -s "${PWD}"/oh-my-zsh "$HOME"/.oh-my-zsh
-
-	exec "$SHELL" -l
 }
 
 subcommand=$1

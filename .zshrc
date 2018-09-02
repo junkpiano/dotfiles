@@ -40,15 +40,19 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]];then
+  git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+fi
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv ruby rails iterm2 pyenv tig)
+plugins=(git rbenv ruby rails iterm2 pyenv tig zsh-syntax-highlighting)
 
 # User configuration
 if [ -f ~/.zshrc.local ] ; then
-	. ~/.zshrc.local
+	source ~/.zshrc.local
 fi
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -89,5 +93,9 @@ export PATH="/usr/local/bin:$PATH"
 
 export PATH="$HOME/.bin:$PATH"
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+source $HOME/.asdf/asdf.sh
+source $HOME/.asdf/completions/asdf.bash
+export GPG_TTY=$(tty)
+alias git="hub"
+alias gcs="git commit -v -S"
+alias gcs!="git commit -v --amend -S"
