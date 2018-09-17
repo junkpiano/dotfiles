@@ -95,6 +95,9 @@ export PATH="$HOME/.bin:$PATH"
 
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
+
+source /usr/local/etc/profile.d/z.sh
+
 export GPG_TTY=$(tty)
 alias git="hub"
 alias gcs="git commit -v -S"
