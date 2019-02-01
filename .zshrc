@@ -100,5 +100,7 @@ source /usr/local/etc/profile.d/z.sh
 
 export GPG_TTY=$(tty)
 alias git="hub"
-alias gcs="git commit -v -S"
-alias gcs!="git commit -v --amend -S"
+alias e='emacsclient -t'
+alias ec='emacsclient -c'
+alias vim='emacsclient -t'
+alias vi='emacsclient -t'
