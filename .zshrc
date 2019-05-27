@@ -89,7 +89,7 @@ autoload -U promptinit; promptinit
 prompt pure
 
 # recommended by brew doctor
-export PATH="/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 export PATH="$HOME/.bin:$PATH"
 
