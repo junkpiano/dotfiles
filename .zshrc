@@ -4,7 +4,11 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME=""
+if [[ $(uname) == "Darwin" ]]; then
+    ZSH_THEME=""
+else
+    ZSH_THEME="random"
+fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -48,8 +52,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv ruby rails iterm2 pyenv tig zsh-syntax-highlighting)
-
+plugins=(git rbenv ruby rails iterm2 pyenv tig zsh-syntax-highlighting asdf)
 # User configuration
 if [ -f ~/.zshrc.local ] ; then
 	source ~/.zshrc.local
@@ -85,22 +88,28 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-autoload -U promptinit; promptinit
-prompt pure
+if [[ `uname` == 'Darwin' ]]; then
+    autoload -U promptinit; promptinit
+    prompt pure
+fi
 
 # recommended by brew doctor
 export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
 
 export PATH="$HOME/.bin:$PATH"
 
-source $HOME/.asdf/asdf.sh
-source $HOME/.asdf/completions/asdf.bash
-
-source /usr/local/etc/profile.d/z.sh
+if [[ -f "/usr/local/etc/profile.d/z.sh" ]]
+then
+    source /usr/local/etc/profile.d/z.sh
+fi
 
 export GPG_TTY=$(tty)
-alias git="hub"
-alias e='emacsclient -t'
-alias ec='emacsclient -c'
-alias vim='emacsclient -t'
-alias vi='emacsclient -t'
+
+# Only MacOS loads aliases
+if [[ `uname` == 'Darwin' ]]; then
+    alias git="hub"
+    alias e='emacsclient -t'
+    alias ec='emacsclient -c'
+    alias vim='emacsclient -t'
+    alias vi='emacsclient -t'
+fi

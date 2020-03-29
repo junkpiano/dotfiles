@@ -7,10 +7,12 @@ prepare() {
 
 bootstrap() {
 	if [[ $(uname) == 'Darwin' ]]; then
-    	sh laptop/mac 2>&1 | tee ~/laptop.log
+    	    sh laptop/mac 2>&1 | tee ~/laptop.log
+	    npm install --global pure-prompt
+	elif [[ $(uname) == 'Linux' ]]; then
+	    # install `asdf`
+	    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.8
 	fi
-
-	npm install --global pure-prompt
 }
 
 reloadConf() {
@@ -22,7 +24,10 @@ reloadConf() {
 	ln -s ${PWD}/$1 ${HOME}/$1
 	' sh {} \;
 
-	rm "${HOME:?}"/.oh-my-zsh
+	if [[ -d ${HOME}/.oh-my-zsh ]]
+	then
+		rm "${HOME:?}"/.oh-my-zsh
+	fi
 	ln -s "${PWD}"/oh-my-zsh "$HOME"/.oh-my-zsh
 }
 
