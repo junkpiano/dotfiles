@@ -94,7 +94,7 @@ if [[ `uname` == 'Darwin' ]]; then
 fi
 
 # recommended by brew doctor
-export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:$PATH"
 
 export PATH="$HOME/.bin:$PATH"
 
@@ -108,8 +108,4 @@ export GPG_TTY=$(tty)
 # Only MacOS loads aliases
 if [[ `uname` == 'Darwin' ]]; then
     alias git="hub"
-    alias e='emacsclient -t'
-    alias ec='emacsclient -c'
-    alias vim='emacsclient -t'
-    alias vi='emacsclient -t'
 fi
