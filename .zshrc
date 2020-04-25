@@ -7,7 +7,7 @@ export ZSH=~/.oh-my-zsh
 if [[ $(uname) == "Darwin" ]]; then
     ZSH_THEME=""
 else
-    ZSH_THEME="random"
+    ZSH_THEME="kennethreitz"
 fi
 
 # Uncomment the following line to use case-sensitive completion.
