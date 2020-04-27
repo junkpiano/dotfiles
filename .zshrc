@@ -109,3 +109,5 @@ export GPG_TTY=$(tty)
 if [[ `uname` == 'Darwin' ]]; then
     alias git="hub"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
