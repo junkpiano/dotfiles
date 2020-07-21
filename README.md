@@ -29,6 +29,17 @@ Zsh Plugins
 Color Theme
 --------------
 
-| iTerm2 | Hyper.js |
-| :------------- | :------------- |
-| [sindresorhus/iTerm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy) | [sindresorhus/hyper-snazzy](https://github.com/sindresorhus/hyper-snazzy) |
+## For MacOS
+
+| iTerm2 |
+| :------------- |
+| [sindresorhus/iTerm2-snazzy](https://github.com/sindresorhus/iterm2-snazzy) |
+
+## For Windows
+
+*under construction*
+
+References
+------------------
+
+- https://junkpiano.github.io/dotfiles
