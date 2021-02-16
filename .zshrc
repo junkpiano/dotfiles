@@ -105,9 +105,4 @@ fi
 
 export GPG_TTY=$(tty)
 
-# Only MacOS loads aliases
-if [[ `uname` == 'Darwin' ]]; then
-    alias git="hub"
-fi
-
 export PATH="$HOME/.cargo/bin:$PATH"

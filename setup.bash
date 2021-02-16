@@ -7,8 +7,9 @@ prepare() {
 
 bootstrap() {
 	if [[ $(uname) == 'Darwin' ]]; then
-    	    sh laptop/mac 2>&1 | tee ~/laptop.log
+    	sh laptop/mac 2>&1 | tee ~/laptop.log
 	    npm install --global pure-prompt
+		brew bundle
 	elif [[ $(uname) == 'Linux' ]]; then
 	    # install `asdf`
 	    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.7.8
