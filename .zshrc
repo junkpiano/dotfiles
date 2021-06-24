@@ -106,3 +106,6 @@ fi
 export GPG_TTY=$(tty)
 
 export PATH="$HOME/.cargo/bin:$PATH"
+
+# Created by `pipx` on 2021-04-04 09:04:17
+export PATH="$PATH:/Users/yusuke.a.ohashi/.local/bin"

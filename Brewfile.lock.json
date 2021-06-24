@@ -89,6 +89,72 @@
             }
           }
         }
+      },
+      "robotsandpencils/made/xcodes": {
+        "version": "0.16.0",
+        "bottle": {
+          "rebuild": 0,
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "root_url": "https://github.com/RobotsAndPencils/xcodes/releases/download/0.16.0",
+          "files": {
+            "mojave": {
+              "url": "https://github.com/RobotsAndPencils/xcodes/releases/download/0.16.0/xcodes-0.16.0.mojave.bottle.tar.gz",
+              "sha256": "c4f625edb2f3aa8b5669e8cf5ba75430585e0d76f7632a37f921a2ecfaf8d2ff"
+            }
+          }
+        }
+      },
+      "xcodes": {
+        "version": "0.16.0",
+        "bottle": {
+          "rebuild": 0,
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "root_url": "https://github.com/RobotsAndPencils/xcodes/releases/download/0.16.0",
+          "files": {
+            "mojave": {
+              "url": "https://github.com/RobotsAndPencils/xcodes/releases/download/0.16.0/xcodes-0.16.0.mojave.bottle.tar.gz",
+              "sha256": "c4f625edb2f3aa8b5669e8cf5ba75430585e0d76f7632a37f921a2ecfaf8d2ff"
+            }
+          }
+        }
+      },
+      "maven": {
+        "version": "3.6.3_1",
+        "bottle": false
+      },
+      "z": {
+        "version": "1.9",
+        "bottle": false
+      }
+    },
+    "tap": {
+      "robotsandpencils/made": {
+        "revision": "f94247479cec56e17138abdd942ff669b0c76843"
+      },
+      "adoptopenjdk/openjdk": {
+        "revision": "acb102fa1a03a7d3e24b363bd864e6cc1f4b7f0f"
+      }
+    },
+    "cask": {
+      "spotify": {
+        "version": "1.1.52.687.gf5565fe5,1.1.52.687.gf5565fe5-30",
+        "options": {
+          "full_name": "spotify"
+        }
+      },
+      "slack": {
+        "version": "4.12.2",
+        "options": {
+          "full_name": "slack"
+        }
+      },
+      "adoptopenjdk11": {
+        "version": "11.0.10,9",
+        "options": {
+          "full_name": "adoptopenjdk11"
+        }
       }
     }
   },
@@ -97,10 +163,18 @@
       "catalina": {
         "HOMEBREW_VERSION": "3.0.1",
         "HOMEBREW_PREFIX": "/usr/local",
-        "Homebrew/homebrew-core": "eb7c8d21b87d23cdd08626d2c80c8c63b1846762",
+        "Homebrew/homebrew-core": "a9a90b59a70072aa62b1189a124196efcbe10f9f",
         "CLT": "12.4.0.0.1.1610135815",
-        "Xcode": "12.0",
+        "Xcode": "12.4",
         "macOS": "10.15.7"
+      },
+      "big_sur": {
+        "HOMEBREW_VERSION": "3.0.1",
+        "HOMEBREW_PREFIX": "/usr/local",
+        "Homebrew/homebrew-core": "a9a90b59a70072aa62b1189a124196efcbe10f9f",
+        "CLT": "12.4.0.0.1.1610135815",
+        "Xcode": "12.4",
+        "macOS": "11.2.1"
       }
     }
   }
