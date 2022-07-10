@@ -1,5 +1,7 @@
 #! /usr/bin/env bash
 
+set -e
+
 prepare() {
 	git submodule init
 	git submodule update
