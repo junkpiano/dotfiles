@@ -86,12 +86,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-#
-
-if [[ `uname` == 'Darwin' ]]; then
-    autoload -U promptinit; promptinit
-    prompt pure
-fi
 
 # recommended by brew doctor
 export PATH="/usr/local/sbin:$PATH"
@@ -113,3 +107,13 @@ export PATH="$PATH:/Users/yusuke.a.ohashi/.local/bin"
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/yusuke.a.ohashi/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+if [[ `uname` == 'Darwin' ]]; then
+    if [[ $(uname -m) == 'arm64' ]]; then
+	export ASDF_DIR="$(brew --prefix asdf)/libexec"
+    fi
+    autoload -U promptinit; promptinit
+    prompt pure
+fi	
+
+

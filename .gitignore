@@ -5,3 +5,4 @@ npm-debug.log
 junk
 .zshrc.local
 .bashrc
+*.lock.json
