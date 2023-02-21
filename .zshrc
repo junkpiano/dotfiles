@@ -109,3 +109,7 @@ export PATH="$HOME/.cargo/bin:$PATH"
 
 # Created by `pipx` on 2021-04-04 09:04:17
 export PATH="$PATH:/Users/yusuke.a.ohashi/.local/bin"
+
+### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
+export PATH="/Users/yusuke.a.ohashi/.rd/bin:$PATH"
+### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)

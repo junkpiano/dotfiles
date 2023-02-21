@@ -9,7 +9,7 @@ export PAGER=less
 # LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
 # export LS_COLORS
 # Tell ls to be colourful
-export CLICOLOR=1
+export CLICOLOR=1 
 export LSCOLORS=cxfxexdxbxegedabagacad
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
@@ -49,4 +49,11 @@ if [ -f ~/.bashrc ] ; then
     . ~/.bashrc
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+
+# >>> coursier install directory >>>
+export PATH="$PATH:/Users/yusuke.a.ohashi/Library/Application Support/Coursier/bin"
+# <<< coursier install directory <<<
+
+. $HOME/.asdf/asdf.sh
+. $HOME/.asdf/completions/asdf.bash
+. "$HOME/.cargo/env"
