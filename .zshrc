@@ -114,6 +114,6 @@ if [[ `uname` == 'Darwin' ]]; then
     fi
     autoload -U promptinit; promptinit
     prompt pure
-fi	
+fi
 
-
+. $ASDF_DIR/asdf.sh

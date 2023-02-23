@@ -8,6 +8,7 @@ brew "xcodes"
 brew "maven"
 brew "z"
 brew "pure"
+brew "aria2"
 
 cask "1password"
 cask "alfred"
