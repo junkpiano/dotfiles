@@ -53,11 +53,6 @@ fi
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git rbenv ruby rails iterm2 pyenv tig zsh-syntax-highlighting asdf)
-# User configuration
-if [ -f ~/.zshrc.local ] ; then
-	source ~/.zshrc.local
-fi
-
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,6 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias vim=nvim
 
 # recommended by brew doctor
 export PATH="/usr/local/sbin:$PATH"
@@ -101,19 +97,13 @@ export GPG_TTY=$(tty)
 
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Created by `pipx` on 2021-04-04 09:04:17
-export PATH="$PATH:/Users/yusuke.a.ohashi/.local/bin"
-
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/yusuke.a.ohashi/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 if [[ `uname` == 'Darwin' ]]; then
-    if [[ $(uname -m) == 'arm64' ]]; then
-	export ASDF_DIR="$(brew --prefix asdf)/libexec"
-    fi
-    autoload -U promptinit; promptinit
-    prompt pure
+    export ASDF_DIR="$(brew --prefix asdf)/libexec"
+    . $ASDF_DIR/asdf.sh
 fi
 
-. $ASDF_DIR/asdf.sh
+# User configuration
+if [ -f ~/.zshrc.local ] ; then
+	source ~/.zshrc.local
+fi
+
