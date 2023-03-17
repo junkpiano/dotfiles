@@ -5,7 +5,7 @@ export ZSH=~/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 if [[ $(uname) == "Darwin" ]]; then
-    ZSH_THEME=""
+    ZSH_THEME="kennethreitz"
 else
     ZSH_THEME="kennethreitz"
 fi
