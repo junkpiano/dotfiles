@@ -9,7 +9,7 @@ export PAGER=less
 # LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35'
 # export LS_COLORS
 # Tell ls to be colourful
-export CLICOLOR=1 
+export CLICOLOR=1
 export LSCOLORS=cxfxexdxbxegedabagacad
 # Tell grep to highlight matches
 export GREP_OPTIONS='--color=auto'
@@ -25,7 +25,7 @@ if [[ `uname` == 'Darwin' ]]; then
     export EDITOR=vim
     export PATH=$HOME/bin:$PATH
     alias brew-upgrade-outdated="brew update && brew outdated | awk '{print $1}' | xargs brew upgrade"
-    
+
     GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
     export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
     export GOPATH=$HOME/src/go
@@ -49,11 +49,5 @@ if [ -f ~/.bashrc ] ; then
     . ~/.bashrc
 fi
 
-
-# >>> coursier install directory >>>
-export PATH="$PATH:/Users/yusuke.a.ohashi/Library/Application Support/Coursier/bin"
-# <<< coursier install directory <<<
-
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-. "$HOME/.cargo/env"

@@ -52,7 +52,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git rbenv ruby rails iterm2 pyenv tig zsh-syntax-highlighting asdf)
+plugins=(git iterm2 pyenv tig zsh-syntax-highlighting)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -86,7 +86,7 @@ alias vim=nvim
 # recommended by brew doctor
 export PATH="/usr/local/sbin:$PATH"
 
-export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/bin:$HOME/.bin:$PATH"
 
 if [[ -f "/usr/local/etc/profile.d/z.sh" ]]
 then
@@ -95,15 +95,16 @@ fi
 
 export GPG_TTY=$(tty)
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
-if [[ `uname` == 'Darwin' ]]; then
-    export ASDF_DIR="$(brew --prefix asdf)/libexec"
-    . $ASDF_DIR/asdf.sh
-fi
+. "$HOME/.asdf/asdf.sh"
 
 # User configuration
 if [ -f ~/.zshrc.local ] ; then
 	source ~/.zshrc.local
 fi
 
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
+
+eval "$(/Users/yusuke.a.ohashi/.local/bin/mise activate zsh --shims)"
