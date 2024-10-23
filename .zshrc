@@ -4,11 +4,11 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-if [[ $(uname) == "Darwin" ]]; then
-    ZSH_THEME="kennethreitz"
-else
-    ZSH_THEME="kennethreitz"
-fi
+#if [[ $(uname) == "Darwin" ]]; then
+#    ZSH_THEME="kennethreitz"
+#else
+#    ZSH_THEME="kennethreitz"
+#fi
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -109,3 +109,6 @@ export LC_ALL=en_US.UTF-8
 
 eval "$(/Users/yusuke.a.ohashi/.local/bin/mise activate zsh --shims)"
 . "/Users/yusuke.a.ohashi/.deno/env"
+
+autoload -U promptinit; promptinit
+prompt pure

@@ -7,6 +7,8 @@ brew "aria2"
 brew "xcodesorg/made/xcodes"
 brew "neovim"
 brew "gh"
+brew "zsh"
+brew "pure"
 
 cask "alfred"
 cask "bitwarden"
