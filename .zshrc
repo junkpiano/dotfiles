@@ -85,8 +85,8 @@ alias vim=nvim
 
 # recommended by brew doctor
 export PATH="/usr/local/sbin:$PATH"
-
 export PATH="$HOME/bin:$HOME/.bin:$PATH"
+export PATH="$HOME/work/flutter/bin:$PATH"
 
 if [[ -f "/usr/local/etc/profile.d/z.sh" ]]
 then
@@ -106,9 +106,6 @@ fi
 
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
-
-eval "$(/Users/yusuke.a.ohashi/.local/bin/mise activate zsh --shims)"
-. "/Users/yusuke.a.ohashi/.deno/env"
 
 autoload -U promptinit; promptinit
 prompt pure

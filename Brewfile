@@ -9,6 +9,8 @@ brew "neovim"
 brew "gh"
 brew "zsh"
 brew "pure"
+brew "bazelisk"
+brew "cmake"
 
 cask "alfred"
 cask "bitwarden"

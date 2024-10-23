@@ -4,6 +4,8 @@ dotfiles
 These are my dotfiles.
 `setup.bash` is checked with [shellcheck](https://github.com/koalaman/shellcheck).
 
+**Note**: Only tested on MacOS and Ubuntu.
+
 Bootstrap
 --------------
 

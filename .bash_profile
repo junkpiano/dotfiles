@@ -17,24 +17,24 @@ alias ls='ls -FG'
 alias grep='grep --color=auto'
 
 if [ ! -d "${HOME}/.vim/bundle" ]; then
-     echo "install neobundle."
-     which git && curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+  echo "install neobundle."
+  which git && curl https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 fi
 
-if [[ `uname` == 'Darwin' ]]; then
-    export EDITOR=vim
-    export PATH=$HOME/bin:$PATH
-    alias brew-upgrade-outdated="brew update && brew outdated | awk '{print $1}' | xargs brew upgrade"
+if [[ $(uname) == 'Darwin' ]]; then
+  export EDITOR=vim
+  export PATH=$HOME/bin:$PATH
+  alias brew-upgrade-outdated="brew update && brew outdated | awk '{print $1}' | xargs brew upgrade"
 
-    GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
-    export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
-    export GOPATH=$HOME/src/go
-    export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$GOPATH/bin:$PATH
-    . `brew --prefix`/etc/profile.d/z.sh
-    export JAVA_HOME=$(/usr/libexec/java_home)
-    export PATH=${JAVA_HOME}/bin:$PATH
-elif [[ `uname` == 'Linux' ]]; then
-    alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
+  GOVERSION=$(brew list go | head -n 1 | cut -d '/' -f 6)
+  export GOROOT=$(brew --prefix)/Cellar/go/$GOVERSION/libexec
+  export GOPATH=$HOME/src/go
+  export PATH=/Library/Developer/Toolchains/swift-latest.xctoolchain/usr/bin:$GOPATH/bin:$PATH
+  . $(brew --prefix)/etc/profile.d/z.sh
+  export JAVA_HOME=$(/usr/libexec/java_home)
+  export PATH=${JAVA_HOME}/bin:$PATH
+elif [[ $(uname) == 'Linux' ]]; then
+  alias composer="hhvm -v ResourceLimit.SocketDefaultTimeout=30 -v Http.SlowQueryThreshold=30000 /usr/local/bin/composer"
 fi
 
 alias bex="bundle exec"
@@ -45,10 +45,10 @@ export RPROMPT="[%~]"
 export SPROMPT="correct: %R -> %r ? "
 export PS1='[\h]\w $ '
 
-if [ -f ~/.bashrc ] ; then
-    . ~/.bashrc
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
 fi
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
-. "/Users/yusuke.a.ohashi/.deno/env"
+

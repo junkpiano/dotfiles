@@ -27,14 +27,23 @@ prepare() {
 }
 
 bootstrap() {
+  if [ $(uname) = "Linux" ]; then
+    sudo apt install build-essential procps curl file git
+  fi
+
   if ! command -v brew >/dev/null; then
     fancy_echo "Installing Homebrew ..."
     /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    append_to_zshrc "eval \"\$($HOMEBREW_PREFIX/bin/brew shellenv)\""
+    if [ $(uname) = "Linux" ]; then
+      test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
+      test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+    fi
 
-    export PATH="$HOMEBREW_PREFIX/bin:$PATH"
+    append_to_zshrc "eval \"\$($(brew --prefix)/bin/brew shellenv)\""
+
+    export PATH="$(brew --prefix)/bin:$PATH"
   fi
 
   if ! command -v asdf >/dev/null; then
