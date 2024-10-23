@@ -51,3 +51,4 @@ fi
 
 . $HOME/.asdf/asdf.sh
 . $HOME/.asdf/completions/asdf.bash
+. "/Users/yusuke.a.ohashi/.deno/env"

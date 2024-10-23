@@ -108,3 +108,4 @@ export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
 eval "$(/Users/yusuke.a.ohashi/.local/bin/mise activate zsh --shims)"
+. "/Users/yusuke.a.ohashi/.deno/env"
