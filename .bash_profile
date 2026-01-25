@@ -49,6 +49,7 @@ if [ -f ~/.bashrc ]; then
   . ~/.bashrc
 fi
 
-. $HOME/.asdf/asdf.sh
-. $HOME/.asdf/completions/asdf.bash
+if [[ -f "$HOME/.local/bin/mise" ]]; then
+  eval "$(~/.local/bin/mise env bash)"
+fi
 

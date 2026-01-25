@@ -35,8 +35,8 @@ This is a dotfiles repository, not a software project with compilation. The "bui
 #### Import and Source Style
 - Source external files with conditional checks:
   ```bash
-  if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-    source "$HOME/.asdf/asdf.sh"
+  if [[ -f "$HOME/.local/bin/mise" ]]; then
+    eval "$(~/.local/bin/mise env zsh)"
   fi
   ```
 - Use absolute paths when sourcing external scripts
@@ -100,7 +100,7 @@ This is a dotfiles repository, not a software project with compilation. The "bui
 This repository manages personal development environment configuration including:
 - Shell configurations (Zsh, Bash)
 - Development tools (Git, Tmux, Neovim)
-- Package management (Homebrew, asdf)
+- Package management (Homebrew, mise)
 - Platform-specific setups (macOS/Linux)
 
 Agents should preserve existing functionality while making improvements that maintain cross-platform compatibility and follow established patterns.

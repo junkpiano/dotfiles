@@ -109,9 +109,9 @@ elif command -v brew >/dev/null 2>&1; then
   eval "$(brew shellenv)"
 fi
 
-# asdf version manager
-if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
-  source "$HOME/.asdf/asdf.sh"
+# mise version manager
+if [[ -f "$HOME/.local/bin/mise" ]]; then
+  eval "$(~/.local/bin/mise env zsh)"
 fi
 
 # Local overrides
@@ -128,3 +128,4 @@ export DOTFILE_PATH=/home/yusuke/work/dotfiles
 
 
 
+eval "$(/home/yusuke/.local/bin/mise activate zsh)"

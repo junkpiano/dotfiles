@@ -46,9 +46,9 @@ bootstrap() {
     export PATH="$(brew --prefix)/bin:$PATH"
   fi
 
-  if ! command -v asdf >/dev/null; then
-    git clone https://github.com/asdf-vm/asdf.git ~/.asdf --branch v0.14.1
-    append_to_zshrc ". $HOME/.asdf/asdf.sh"
+  if ! command -v mise >/dev/null; then
+    curl https://mise.run | sh
+    append_to_zshrc 'eval "$(~/.local/bin/mise env zsh)"'
   fi
 }
 
