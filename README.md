@@ -25,7 +25,6 @@ Zsh Plugins
 --------------
 
 - [robbyrussell/oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-- [sindresorhus/pure](https://github.com/sindresorhus/pure)
 - [zsh-users/zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 Color Theme
