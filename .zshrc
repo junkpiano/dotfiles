@@ -94,8 +94,18 @@ fi
 # GPG_TTY for signing (safe fallback)
 export GPG_TTY=$(tty 2>/dev/null || echo "")
 
-# Homebrew (Linux)
-if command -v brew >/dev/null 2>&1; then
+# Homebrew (cross-platform)
+if [[ -f /opt/homebrew/bin/brew ]]; then
+  # macOS Apple Silicon
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+elif [[ -f /home/linuxbrew/.linuxbrew/bin/brew ]]; then
+  # Linux
+  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+elif [[ -f ~/.linuxbrew/bin/brew ]]; then
+  # Linux user install
+  eval "$(~/.linuxbrew/bin/brew shellenv)"
+elif command -v brew >/dev/null 2>&1; then
+  # Fallback if already in PATH
   eval "$(brew shellenv)"
 fi
 
