@@ -1,4 +1,4 @@
-#! /usr/bin/env bash
+#!/usr/bin/env bash
 
 set -e
 
@@ -27,16 +27,16 @@ prepare() {
 }
 
 bootstrap() {
-  if [ $(uname) = "Linux" ]; then
+  if [[ "$(uname)" == "Linux" ]]; then
     sudo apt install build-essential procps curl file git
   fi
 
   if ! command -v brew >/dev/null; then
-    fancy_echo "Installing Homebrew ..."
+    echo "Installing Homebrew ..."
     /bin/bash -c \
       "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-    if [ $(uname) = "Linux" ]; then
+    if [[ "$(uname)" == "Linux" ]]; then
       test -d ~/.linuxbrew && eval "$(~/.linuxbrew/bin/brew shellenv)"
       test -d /home/linuxbrew/.linuxbrew && eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     fi
@@ -58,13 +58,13 @@ reloadConf() {
     -exec sh -c '
 	echo "creating a symbolic link to $1 ..."
 	rm -rf "${HOME}/$1" || continue
-	ln -s ${PWD}/$1 ${HOME}/$1
+	ln -s "${PWD}/$1" "${HOME}/$1"
 	' sh {} \;
 
-  if [[ -d ${HOME}/.oh-my-zsh ]]; then
-    rm "${HOME:?}"/.oh-my-zsh
+  if [[ -d "${HOME}/.oh-my-zsh" ]]; then
+    rm -rf "${HOME}/.oh-my-zsh"
   fi
-  ln -s "${PWD}"/oh-my-zsh "$HOME"/.oh-my-zsh
+  ln -s "${PWD}/oh-my-zsh" "${HOME}/.oh-my-zsh"
 }
 
 subcommand=$1
@@ -72,8 +72,17 @@ subcommand=$1
 prepare
 
 case $subcommand in
-"bootstrap") bootstrap ;;
-*) ;;
+"bootstrap") 
+  bootstrap
+  ;;
+"")
+  # Default behavior - no subcommand
+  ;;
+*) 
+  echo "Unknown subcommand: $subcommand"
+  echo "Usage: $0 [bootstrap]"
+  exit 1
+  ;;
 esac
 
 reloadConf

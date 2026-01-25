@@ -4,11 +4,7 @@ export ZSH=~/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#if [[ $(uname) == "Darwin" ]]; then
-#    ZSH_THEME="kennethreitz"
-#else
-#    ZSH_THEME="kennethreitz"
-#fi
+ZSH_THEME="simple"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -44,7 +40,8 @@ ENABLE_CORRECTION="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]];then
+if [[ ! -d ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting ]]; then
+  echo "Installing zsh-syntax-highlighting..." >&2
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 fi
 
@@ -52,7 +49,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git iterm2 pyenv tig zsh-syntax-highlighting)
+plugins=(git pyenv tig zsh-syntax-highlighting)
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -83,29 +80,41 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias vim=nvim
 
-# recommended by brew doctor
-export PATH="/usr/local/sbin:$PATH"
-export PATH="$HOME/bin:$HOME/.bin:$PATH"
-export PATH="$HOME/work/flutter/bin:$PATH"
-
-if [[ -f "/usr/local/etc/profile.d/z.sh" ]]
-then
-    source /usr/local/etc/profile.d/z.sh
-fi
-
-export GPG_TTY=$(tty)
-
-. "$HOME/.asdf/asdf.sh"
-
-# User configuration
-if [ -f ~/.zshrc.local ] ; then
-	source ~/.zshrc.local
-fi
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 
-autoload -U promptinit; promptinit
-prompt pure
+# Consolidated PATH exports
+export PATH="/usr/local/sbin:$HOME/bin:$HOME/.bin:$HOME/work/flutter/bin:/home/yusuke/.opencode/bin:$PATH"
+
+# z.sh for directory jumping
+if [[ -f "/usr/local/etc/profile.d/z.sh" ]]; then
+  source /usr/local/etc/profile.d/z.sh
+fi
+
+# GPG_TTY for signing (safe fallback)
+export GPG_TTY=$(tty 2>/dev/null || echo "")
+
+# Homebrew (Linux)
+if command -v brew >/dev/null 2>&1; then
+  eval "$(brew shellenv)"
+fi
+
+# asdf version manager
+if [[ -f "$HOME/.asdf/asdf.sh" ]]; then
+  source "$HOME/.asdf/asdf.sh"
+fi
+
+# Local overrides
+if [[ -f ~/.zshrc.local ]]; then
+  source ~/.zshrc.local
+fi
+
+# FZF fuzzy finder
+if [[ -f ~/.fzf.zsh ]]; then
+  source ~/.fzf.zsh
+fi
+
+export DOTFILE_PATH=/home/yusuke/work/dotfiles
+
+
+
