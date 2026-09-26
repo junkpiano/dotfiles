@@ -44,3 +44,8 @@ References
 ------------------
 
 - https://junkpiano.github.io/dotfiles
+
+To remove the symlinks this repo made in `$HOME` (only links, never files):
+
+    $ ./setup.bash cleanup -n   # show what would be removed
+    $ ./setup.bash cleanup
