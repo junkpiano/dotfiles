@@ -67,7 +67,38 @@ reloadConf() {
   ln -s "${PWD}/oh-my-zsh" "${HOME}/.oh-my-zsh"
 }
 
+# Remove the symlinks in $HOME that point into this repo (the ones reloadConf made).
+# Only symlinks are removed, never files or directories; the repo itself is untouched.
+# Usage: ./setup.bash cleanup      (./setup.bash cleanup -n shows what would go, and removes nothing)
+cleanup() {
+  local dry_run="${1:-}" repo link target
+  repo="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
+  if [[ -z "$HOME" || -z "$repo" || "$repo" == "/" ]]; then
+    printf 'HOME or the repo path is empty; stopping\n' >&2
+    exit 1
+  fi
+  for link in "$HOME"/.[!.]* "$HOME"/*; do
+    [[ -L "$link" ]] || continue
+    target="$(readlink "$link")"
+    case "$target" in
+      "$repo"/*) ;;
+      *) continue ;;
+    esac
+    if [[ "$dry_run" == "-n" ]]; then
+      printf 'would remove %s -> %s\n' "$link" "$target"
+    else
+      rm -- "$link"
+      printf 'removed %s -> %s\n' "$link" "$target"
+    fi
+  done
+}
+
 subcommand=$1
+
+if [[ "$subcommand" == "cleanup" ]]; then
+  cleanup "${2:-}"
+  exit 0
+fi
 
 prepare
 
@@ -80,7 +111,7 @@ case $subcommand in
   ;;
 *) 
   echo "Unknown subcommand: $subcommand"
-  echo "Usage: $0 [bootstrap]"
+  echo "Usage: $0 [bootstrap | cleanup [-n]]"
   exit 1
   ;;
 esac
